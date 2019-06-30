@@ -13,7 +13,7 @@
 		<% items.each do |item| %>
 		  <tr>
 			  <td><%= item[:title] %></td>
-			  <td><%= item[:author] %></td>
+			  <td><%= show_authors(item[:author]) %></td>
 				<% id = item['_id'].to_s %>
 				<td><input type="button" value="Edit" onclick="location.href='/edititem?id=<%= id %>'" /></td>
 				<td><input type="button" value="Detail" onclick="location.href='/itemdetail?id=<%= id %>'" /></td>

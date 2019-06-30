@@ -28,6 +28,9 @@ get '/additem' do
 end
 
 post '/update_action' do
+  authors = params['author'].split(',')
+  params['author'] = authors
+
   if params.has_key?('id')
     item = params
     id = BSON::ObjectId(params['id'])
@@ -66,5 +69,11 @@ get '/itemdetail' do
     redirect "/", 303
   else
     erb :itemdetail, :locals => { :pagetitle => ':Show book detail', :item => item_found.to_a[0] }
+  end
+end
+
+helpers do
+  def show_authors(authors)
+    authors.is_a?(Array) ? authors.join(',') : authors
   end
 end

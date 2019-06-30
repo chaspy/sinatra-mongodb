@@ -1,6 +1,6 @@
 <table>
   <tr><th>Title</th><td><%= item[:title] %> <td></tr>
-  <tr><th>Author</th><td><%= item[:author] %> <td></tr>
+  <tr><th>Author</th><td><%= show_authors(item[:author]) %> <td></tr>
   <tr><th>Publisher</th><td><%= item[:publisher] %> <td></tr>
   <tr><th>Publish year</th><td><%= item[:publish_year] %> <td></tr>
 </table>
