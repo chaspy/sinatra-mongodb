@@ -8,8 +8,19 @@ configure do
 end
 
 get '/' do
-  items = settings.items.find()
-  erb :index, :locals => { :pagetitle => '', :items => items }
+  all_items = settings.items.find()
+  erb :index, :locals => { :pagetitle => '', :items => all_items, :searchtext => nil }
+end
+
+post '/' do
+  unless params.has_key?('searchtext')
+    redirect '/', 303
+  end
+  search_regexp = Regexp.new('.*' + params['searchtext'] + '.*')
+  find_items = settings.items.find(:title => search_regexp)
+  erb :index, :locals => { :pagetitle => '',
+                           :items => find_items,
+                           :searchtext => params['searchtext'] }
 end
 
 get '/additem' do

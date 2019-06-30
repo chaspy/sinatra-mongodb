@@ -1,3 +1,10 @@
+<form action="/" method="post">
+  <% searchmode = !(searchtext.nil?) && searchtext.size > 0 %>
+	<input type="text" name="searchtext" <%= %Q(value="#{searchtext}") if searchmode %> />
+	<input type="submit" value="Search" />
+	<input type="button" value="Clear" onclick="location.href='/'" <%= 'hidden' unless searchmode %> />
+</form>
+
 <% if items.count() == 0 %>
   <p>No items</p>
 <% else %>
