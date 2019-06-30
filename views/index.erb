@@ -7,6 +7,8 @@
 		  <tr>
 			  <td><%= item[:title] %></td>
 			  <td><%= item[:author] %></td>
+				<% id = item['_id'].to_s %>
+				<td><input type="button" value="Edit" onclick="location.href='/edititem?id=<%= id %>'" /></td>
 			</tr>
 		<% end %>
 	</table>
