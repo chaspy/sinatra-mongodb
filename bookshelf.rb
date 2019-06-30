@@ -3,7 +3,7 @@ require 'sinatra'
 require 'mongo'
 
 configure do
-  client = Mongo::Client.new([ 'mongo0:27017' ], :database => 'bookshelf')
+  client = Mongo::Client.new([ ENV['MONGO_HOST'] + ":" + ENV['MONGO_PORT'] ], :database => 'bookshelf')
   set :items, client[:items]
 end
 
