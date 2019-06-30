@@ -1,3 +1,17 @@
+<% if items.count() == 0 %>
+  <p>No items</p>
+<% else %>
+  <table border="1">
+	  <tr><th>Title</th><th>Author</th></tr>
+		<% items.each do |item| %>
+		  <tr>
+			  <td><%= item[:title] %></td>
+			  <td><%= item[:author] %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
 <form action="/additem" method="get">
   <input type="submit" value="Add book">
 </form>

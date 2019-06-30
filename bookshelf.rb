@@ -8,7 +8,8 @@ configure do
 end
 
 get '/' do
-  erb :index, :locals => { :pagetitle => '' }
+  items = settings.items.find()
+  erb :index, :locals => { :pagetitle => '', :items => items }
 end
 
 get '/additem' do
