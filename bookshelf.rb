@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  "This is my sinatra test application"
+  erb :index, :locals => { :pagetitle => '' }
 end
