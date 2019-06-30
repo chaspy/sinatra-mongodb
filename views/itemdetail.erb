@@ -1,0 +1,8 @@
+<table>
+  <tr><th>Title</th><td><%= item[:title] %> <td></tr>
+  <tr><th>Author</th><td><%= item[:author] %> <td></tr>
+  <tr><th>Publisher</th><td><%= item[:publisher] %> <td></tr>
+  <tr><th>Publish year</th><td><%= item[:publish_year] %> <td></tr>
+</table>
+<input type="button" value="Delete item" onclick="location.href='/delete_action?id=<%= item['_id'] %>'" />
+<input type="button" value="Back" onclick="location.href='/'" />
